@@ -3,13 +3,20 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
-        <title>Todo</title>
+        <title>To-Do</title>
 
         <link rel="icon" type="image/x-icon" href="./favicon.ico" />
         <link rel="stylesheet" href="normalize.css" />
         <link rel="stylesheet" href="styles.css" />
+
+        <script src="app.js"></script>
     </head>
     <body>
-        <h1>To Do App</h1>
+        <div class="page-content">
+            <h1>To-Do</h1>
+            <form id="inputForm" onsubmit="javascript:handleSubmit()">
+                <input type="text" placeholder="To-Do:" />
+            </form>
+        </div>
     </body>
 </html>
