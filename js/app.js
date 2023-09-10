@@ -4,11 +4,12 @@ const db = {
         console.log('Returning all data: ', this.data);
         return data;
     },
-    newToDoInput: function(name) {
-        this.data.push(this._createToDoItem(name));
-        console.log(this.data);
+    newTaskInput: function(name) {
+        const newTask = this._createTask(name);
+        this.data.push(newTask);
+        return newTask;
     },
-    _createToDoItem: function(name) {
+    _createTask: function(name) {
         return {
             id: crypto.randomUUID(),
             name: name,
@@ -23,7 +24,7 @@ function createTaskListItem(task) {
     const checkBox = document.createElement('input');
     const checkBoxLabel = document.createElement('label');
     checkBox.type = 'checkbox';
-    checkBoxLabel.textContent = ' ' + task;
+    checkBoxLabel.textContent = ' ' + task.name;
     checkBoxLabel.htmlFor = task;
     taskItem.appendChild(checkBox);
     taskItem.appendChild(checkBoxLabel)
@@ -33,10 +34,10 @@ function createTaskListItem(task) {
 function handleSubmit(event) {
     event.preventDefault();
     const taskName = form.querySelector('#taskName').value;
-    db.newToDoInput(taskName);
+    const newTask = db.newTaskInput(taskName);
     form.reset();
 
-    createTaskListItem(taskName);
+    createTaskListItem(newTask);
     return false;
 }
 
