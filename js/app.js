@@ -40,7 +40,8 @@ function createTaskListItem(task) {
 
 function handleSubmit(event) {
     event.preventDefault();
-    const taskName = form.querySelector('#taskName').value;
+    const taskName = form.querySelector('#taskName').value?.trim();
+    if(!taskName) return false;
     const newTask = db.newTaskInput(taskName);
     form.reset();
 
