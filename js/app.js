@@ -1,5 +1,5 @@
 const db = {
-    data: {},
+    data: JSON.parse(localStorage.getItem("taskData")),
     readAll: function() {
         console.log('Returning all data: ', this.data);
         return this.data;
@@ -7,10 +7,12 @@ const db = {
     newTaskInput: function(name) {
         const newTask = this._createTask(name);
         this.data[newTask.id] = newTask.name;
+        localStorage.setItem("taskData", JSON.stringify(this.data));
         return newTask;
     },
     completeTask: function(taskId) {
         delete this.data[taskId];
+        localStorage.setItem("taskData", JSON.stringify(this.data));
     },
     _createTask: function(name) {
         return {
@@ -21,6 +23,7 @@ const db = {
 };
 const form = document.querySelector('#inputForm');
 const taskList = document.querySelector('#taskList');
+Object.entries(db.data).forEach(([id, name]) => createTaskListItem({id, name}));
 
 function createTaskListItem(task) {
     const taskItem = document.createElement('li');

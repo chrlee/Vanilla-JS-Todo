@@ -9,7 +9,10 @@ body.dark {
 }
 
 h1 {
+    display: inline-flex;
+    align-self: flex-start;
     font-weight: 200;
+    margin: 1rem;
 }
 
 form {
@@ -31,6 +34,13 @@ ul {
     padding-inline: 0;
     flex: 1;
     gap: 1rem;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+ul::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
 }
 
 li {
@@ -40,6 +50,7 @@ li {
 
 button {
     position: relative;
+    cursor: pointer;
     height: 24px;
     width: 24px;
 }
@@ -51,7 +62,7 @@ button::after {
     height: 44px;
     width: 44px;
     top: -10px;
-    left: -6px;
+    left: -10px;
 }
 
 input, button {
@@ -78,8 +89,11 @@ input, button {
 }
 
 .sendButtonImg {
+    position: absolute;
     height: 24px;
     width: 24px;
+    top: 0;
+    left: 0;
 }
 
 #taskName {
