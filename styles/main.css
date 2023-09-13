@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+body.dark {
+    background-color: #111;
+}
+
+h1 {
+    font-weight: 200;
+}
+
 form {
     box-sizing: border-box;
     display: flex;
@@ -16,6 +30,7 @@ ul {
     margin-inline: 0;
     padding-inline: 0;
     flex: 1;
+    gap: 1rem;
 }
 
 li {

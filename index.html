@@ -3,18 +3,20 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
+        <meta name="color-scheme" content="dark light">
         <title>To-Do</title>
 
         <link rel="icon" type="image/x-icon" href="static/favicon.ico" />
         <link rel="stylesheet" href="styles/normalize.css" />
         <link rel="stylesheet" href="styles/main.css" />
 
+        <script async src="js/theme.js"></script>
         <script defer src="js/app.js"></script>
     </head>
     <body>
         <div class="wrapper">
             <div class="page-content">
-                <h1>To-Do</h1>
+                <h1>Tasks</h1>
                 <ul id="taskList"></ul>
                 <form id="inputForm" action="#">
                     <input id="taskName" type="text" placeholder="To-Do:" />
