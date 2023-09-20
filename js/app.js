@@ -1,5 +1,5 @@
 const db = {
-    data: JSON.parse(localStorage.getItem("taskData")),
+    data: JSON.parse(localStorage.getItem("taskData")) || {},
     readAll: function() {
         console.log('Returning all data: ', this.data);
         return this.data;
@@ -22,7 +22,7 @@ const db = {
     }
 };
 const form = document.querySelector('#inputForm');
-const taskList = document.querySelector('#taskList');
+const taskList = document.querySelector('.taskList');
 Object.entries(db.data).forEach(([id, name]) => createTaskListItem({id, name}));
 
 function createTaskListItem(task) {
